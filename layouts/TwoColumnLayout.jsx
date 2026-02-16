@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Dialog, DialogBackdrop, DialogPanel, TransitionChild } from "@headlessui/react";
 import { Bars3Icon, HomeIcon, XMarkIcon } from "@heroicons/react/24/outline";
 
@@ -27,16 +27,6 @@ export function AsideColumn({ children }) {
 
 export default function TwoColumnLayout({ currentTab, children }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
-
-  useEffect(() => {
-    setDarkMode(localStorage.getItem("darkMode") === "true");
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("darkMode", darkMode);
-    document.documentElement.classList.toggle("dark", darkMode);
-  }, [darkMode]);
 
   const navigation = [{ name: "Dashboard", href: "/dashboard", icon: HomeIcon, current: currentTab === "dashboard" }];
 

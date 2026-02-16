@@ -4,6 +4,7 @@ import { Fragment, useEffect, useState } from "react";
 import { Dialog, DialogBackdrop, DialogPanel, Menu, Transition, TransitionChild } from "@headlessui/react";
 import { SwitchField, Switch } from "@/elements/switch";
 import { Avatar } from "@/elements/avatar";
+import { useTheme } from "next-themes";
 import {
   ArrowRightStartOnRectangleIcon,
   Bars3Icon,
@@ -180,19 +181,21 @@ export default function MultiColumnLayout({ currentTab, children }) {
 }
 
 function UserMenu({ user }) {
-  const [darkMode, setDarkMode] = useState(false);
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setDarkMode(localStorage.getItem("darkMode") === "true");
+    setMounted(true);
   }, []);
 
-  useEffect(() => {
-    localStorage.setItem("darkMode", darkMode);
-    document.documentElement.classList.toggle("dark", darkMode);
-  }, [darkMode]);
+  if (!mounted) {
+    return null;
+  }
+
+  const darkMode = theme === "dark";
 
   function handleChangeDarkMode(checked) {
-    setDarkMode(checked);
+    setTheme(checked ? "dark" : "light");
   }
 
   return (
