@@ -5,6 +5,7 @@ import { Dialog, DialogBackdrop, DialogPanel, Menu, Transition, TransitionChild 
 import { SwitchField, Switch } from "@/elements/switch";
 import { Avatar } from "@/elements/avatar";
 import { useTheme } from "next-themes";
+import { SignOutButton } from "@clerk/nextjs";
 import {
   ArrowRightStartOnRectangleIcon,
   Bars3Icon,
@@ -233,17 +234,19 @@ function UserMenu({ user }) {
 
           <Menu.Item>
             {({ active }) => (
-              <a
-                className={`${
-                  active
-                    ? "bg-primary-900 text-secondary-50 dark:bg-secondary-900"
-                    : "text-secondary-300 dark:text-white"
-                } w-full text-left px-4 py-2 text-sm flex items-center gap-3 dark:text-white`}
-                href="/accounts/logout"
-              >
-                <ArrowRightStartOnRectangleIcon className="size-4 stroke-white" />
-                Log out
-              </a>
+              <SignOutButton>
+                <button
+                  className={`${
+                    active
+                      ? "bg-primary-900 text-secondary-50 dark:bg-secondary-900"
+                      : "text-secondary-300 dark:text-white"
+                  } w-full text-left px-4 py-2 text-sm flex items-center gap-3 dark:text-white`}
+                  href="/accounts/logout"
+                >
+                  <ArrowRightStartOnRectangleIcon className="size-4 stroke-white" />
+                  Log out
+                </button>
+              </SignOutButton>
             )}
           </Menu.Item>
         </Menu.Items>
