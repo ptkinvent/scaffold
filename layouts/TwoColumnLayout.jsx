@@ -1,5 +1,6 @@
 "use client";
 
+import logo from "@/public/logo.png";
 import { useState } from "react";
 import { Dialog, DialogBackdrop, DialogPanel, TransitionChild } from "@headlessui/react";
 import { Bars3Icon, HomeIcon, XMarkIcon } from "@heroicons/react/24/outline";
@@ -55,10 +56,7 @@ export default function TwoColumnLayout({ currentTab, children }) {
             <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-primary-800 px-6 pb-2 ring-1 ring-white/10">
               <div className="flex h-16 shrink-0 items-center">
                 <a href="/">
-                  <img
-                    src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
-                    className="h-8 w-auto"
-                  />
+                  <img src={logo.src} className="h-8 w-auto" />
                 </a>
               </div>
               <nav className="flex flex-1 flex-col">
@@ -86,13 +84,10 @@ export default function TwoColumnLayout({ currentTab, children }) {
       </Dialog>
 
       {/* Static sidebar for desktop */}
-      <div className="hidden lg:fixed lg:inset-y-0 lg:left-0 lg:z-50 lg:block lg:w-20 lg:overflow-y-auto lg:bg-primary-950 lg:pb-4 dark:bg-secondary-900 dark:before:pointer-events-none dark:before:absolute dark:before:inset-0 dark:before:border-r dark:before:border-white/10 dark:before:bg-black/10">
+      <div className="hidden lg:fixed lg:inset-y-0 lg:left-0 lg:z-50 lg:block lg:w-20 lg:overflow-y-auto lg:bg-primary-800 lg:pb-4 dark:bg-secondary-900 dark:before:pointer-events-none dark:before:absolute dark:before:inset-0 dark:before:border-r dark:before:border-white/10 dark:before:bg-black/10">
         <div className="relative flex h-16 shrink-0 items-center justify-center">
           <a href="/">
-            <img
-              src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
-              className="h-8 w-auto"
-            />
+            <img src={logo.src} className="h-8 w-auto" />
           </a>
         </div>
         <nav className="relative mt-8">
@@ -102,7 +97,9 @@ export default function TwoColumnLayout({ currentTab, children }) {
                 <a
                   href={item.href}
                   className={`${
-                    item.current ? "bg-white/5 text-white" : "text-gray-400 hover:bg-white/5 hover:text-white"
+                    item.current
+                      ? "bg-white/25 dark:bg-primary-900 text-white"
+                      : "text-secondary-200 hover:bg-white/25 hover:text-white"
                   } group flex gap-x-3 rounded-md p-3 text-sm/6 font-semibold`}
                 >
                   <item.icon aria-hidden="true" className="size-6 shrink-0" />

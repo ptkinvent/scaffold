@@ -1,5 +1,6 @@
 "use client";
 
+import logo from "@/public/logo.png";
 import { Fragment, useEffect, useState } from "react";
 import { Dialog, DialogBackdrop, DialogPanel, Menu, Transition, TransitionChild } from "@headlessui/react";
 import { SwitchField, Switch } from "@/elements/switch";
@@ -49,10 +50,7 @@ export default function MultiColumnLayout({ currentTab, children }) {
               <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-primary-950 dark:bg-secondary-900 px-6">
                 <div className="flex h-16 shrink-0 items-center">
                   <a href="/">
-                    <img
-                      src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
-                      className="h-8 w-auto"
-                    />
+                    <img src={logo.src} className="h-8 w-auto" />
                   </a>
                 </div>
                 <nav className="flex flex-1 flex-col">
@@ -96,13 +94,10 @@ export default function MultiColumnLayout({ currentTab, children }) {
         {/* Static sidebar for desktop */}
         <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex xl:w-72 lg:w-20 lg:flex-col">
           {/* Sidebar component, swap this element with another sidebar if you like */}
-          <div className="flex grow flex-col gap-y-5 overflow-y-auto border-r border-secondary-200 dark:border-secondary-900 bg-primary-950 dark:bg-secondary-900 px-6">
+          <div className="flex grow flex-col gap-y-5 overflow-y-auto border-r border-secondary-200 dark:border-secondary-900 bg-primary-800 dark:bg-secondary-900 px-6">
             <div className="h-16 shrink-0 items-center lg:hidden xl:flex">
               <a href="/">
-                <img
-                  src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
-                  className="h-8 w-auto"
-                />
+                <img src={logo.src} className="h-8 w-auto" />
               </a>
             </div>
             <div className="h-16 shrink-0 items-center justify-center hidden lg:flex xl:hidden mt-3">
@@ -124,14 +119,14 @@ export default function MultiColumnLayout({ currentTab, children }) {
                           href={item.href}
                           className={`${
                             item.current
-                              ? "bg-primary-900 text-secondary-50"
-                              : "text-secondary-400 hover:bg-primary-900 hover:text-secondary-50"
+                              ? "bg-white/25 dark:bg-primary-900 text-secondary-50"
+                              : "text-secondary-200 hover:bg-white/25 hover:text-secondary-50"
                           } group flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold justify-center xl:justify-start`}
                         >
                           <item.icon
                             aria-hidden="true"
                             className={`${
-                              item.current ? "text-secondary-50" : "text-secondary-400 group-hover:text-secondary-50"
+                              item.current ? "text-secondary-50" : "text-secondary-200 group-hover:text-secondary-50"
                             } size-6 shrink-0`}
                           />
                           <span className="hidden xl:inline-block">{item.name}</span>
@@ -210,7 +205,7 @@ function UserMenu({ user }) {
             {user?.firstName ? `${user.firstName} ${user.lastName}` : "User"}
           </span>
         </div>
-        <ChevronUpDownIcon className="size-4 stroke-secondary-400" />
+        <ChevronUpDownIcon className="size-4 stroke-secondary-100" />
       </Menu.Button>
       <Transition
         as={Fragment}
@@ -229,7 +224,7 @@ function UserMenu({ user }) {
             <div className="flex items-center gap-3 text-secondary-300 dark:text-white text-sm">
               <MoonIcon className="size-4 stroke-white" /> Dark mode
             </div>
-            <Switch color="indigo" name="darkMode" checked={darkMode} onChange={handleChangeDarkMode} />
+            <Switch color="red" name="darkMode" checked={darkMode} onChange={handleChangeDarkMode} />
           </SwitchField>
 
           <Menu.Item>

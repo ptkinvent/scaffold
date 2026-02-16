@@ -71,7 +71,7 @@ export default {
         sans: ["Inter var", ...defaultTheme.fontFamily.sans],
       },
       colors: {
-        primary: colors.indigo,
+        primary: colors.red,
         info: colors.sky,
         secondary: colors.zinc,
         warning: colors.yellow,
