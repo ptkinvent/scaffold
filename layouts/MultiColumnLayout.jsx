@@ -1,5 +1,6 @@
 "use client";
 
+import config from "../package.json";
 import { Fragment, useEffect, useState } from "react";
 import { Dialog, DialogBackdrop, DialogPanel, Menu, Transition, TransitionChild } from "@headlessui/react";
 import { SwitchField, Switch } from "@/elements/switch";
@@ -170,7 +171,7 @@ export default function MultiColumnLayout({ currentTab, children }) {
             <Bars3Icon aria-hidden="true" className="size-6 text-secondary-500" />
           </button>
           <div className="flex-1 text-sm/6 font-semibold text-secondary-900 dark:text-secondary-50">
-            <a href="/">Scaffold</a>
+            <a href="/">{config.name}</a>
           </div>
           <Avatar className="size-8" initials={user?.firstName ? `${user.firstName[0]}${user.lastName[0]}` : "U"} />
         </div>

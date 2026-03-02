@@ -1,5 +1,6 @@
 import { Button } from "@/elements/button";
 import { SignedIn, SignedOut, SignInButton, SignOutButton, SignUpButton, UserButton } from "@clerk/nextjs";
+import config from "../package.json";
 
 export default function Home() {
   return (
@@ -43,8 +44,8 @@ export default function Home() {
             />
           </div>
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-balance text-4xl font-semibold tracking-tight text-white sm:text-5xl">Scaffold</h2>
-            <p className="mx-auto mt-6 max-w-xl text-lg/8 text-gray-300">Subtitle.</p>
+            <h2 className="text-balance text-4xl font-semibold tracking-tight text-white sm:text-5xl">{config.name}</h2>
+            <p className="mx-auto mt-6 max-w-xl text-lg/8 text-gray-300">{config.description}</p>
             <div className="mt-10 flex items-center justify-center gap-4">
               <SignedOut>
                 <SignUpButton>

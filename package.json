@@ -1,5 +1,6 @@
 {
   "name": "scaffold",
+  "description": "This project provides scaffolding.",
   "version": "0.1.0",
   "private": true,
   "scripts": {
